@@ -5,6 +5,7 @@ const Photo = () => {
 
     const [data, setData] = useState([]);
     const [copyrightData, setCopyrightData] = useState([]);
+    const [copyrightDataLink, setCopyrightDataLink] = useState([]);
     const [dateData, setDateData] = useState([]);
     const [titleData, setTitleData] = useState([]);
 
@@ -17,6 +18,7 @@ const Photo = () => {
                 console.log(fetch.data)
                 setData(`${fetch.data.hdurl}`)
                 setCopyrightData(`${fetch.data.copyright}`)
+                setCopyrightDataLink(`https://www.google.com/search?q=${fetch.data.copyright}`)
                 setDateData(`${fetch.data.date}`)
                 setTitleData(`${fetch.data.title}`)
                 console.log("Data fetched successfully.")
@@ -31,7 +33,7 @@ const Photo = () => {
         <div className="creditContainer">
           <div className="credits">
             <p>|</p>
-            <p>{copyrightData}</p>
+            <p><a href={copyrightDataLink}>{copyrightData}</a></p>
             <p>|</p>
             <p>{dateData}</p>
             <p>|</p>
