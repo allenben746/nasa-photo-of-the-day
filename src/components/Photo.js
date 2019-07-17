@@ -4,6 +4,9 @@ import axios from 'axios';
 const Photo = () => {
 
     const [data, setData] = useState([]);
+    const [copyrightData, setCopyrightData] = useState([]);
+    const [dateData, setDateData] = useState([]);
+    const [titleData, setTitleData] = useState([]);
 
     useEffect(() => {
         axios
@@ -11,8 +14,11 @@ const Photo = () => {
             "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2019-07-15"
         )
             .then(fetch => {
-                console.log(fetch.data.hdurl)
+                console.log(fetch.data)
                 setData(`${fetch.data.hdurl}`)
+                setCopyrightData(`${fetch.data.copyright}`)
+                setDateData(`${fetch.data.date}`)
+                setTitleData(`${fetch.data.title}`)
                 console.log("Data fetched successfully.")
             }
             )
@@ -22,6 +28,17 @@ const Photo = () => {
 
     return (
       <div >
+        <div className="creditContainer">
+          <div className="credits">
+            <p>|</p>
+            <p>{copyrightData}</p>
+            <p>|</p>
+            <p>{dateData}</p>
+            <p>|</p>
+            <p>{titleData}</p>
+            <p>|</p>
+          </div>
+        </div>
         <img className="photo" src={data} alt="Photo of the Day."></img>
       </div>
     );

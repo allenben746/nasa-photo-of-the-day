@@ -36,3 +36,12 @@
   max-height: 10%;
   border: solid 10px;
 }
+
+.credits {
+  display: flex;
+  justify-content: center;
+}
+
+.credits p {
+  padding: 0px 10px 0px 10px;
+}
