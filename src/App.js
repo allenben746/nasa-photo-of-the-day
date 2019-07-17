@@ -9,11 +9,14 @@ import "./App.css";
 
 
 function App() {
+
+ 
+
   return (
-    <div>
+    <div class="App">
       <Header />
       <Photo />
-      <Message />
+      <Message/>
     </div>
   )
 }
