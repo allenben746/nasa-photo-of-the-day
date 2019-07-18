@@ -4,11 +4,7 @@ import axios from 'axios';
 const Photo = () => {
 
     const [data, setData] = useState([]);
-    const [copyrightData, setCopyrightData] = useState([]);
-    const [copyrightDataLink, setCopyrightDataLink] = useState([]);
-    const [dateData, setDateData] = useState([]);
-    const [titleData, setTitleData] = useState([]);
-
+    
     useEffect(() => {
         axios
         .get(
@@ -17,10 +13,6 @@ const Photo = () => {
             .then(fetch => {
                 console.log(fetch.data)
                 setData(`${fetch.data.hdurl}`)
-                setCopyrightData(`${fetch.data.copyright}`)
-                setCopyrightDataLink(`https://www.google.com/search?q=${fetch.data.copyright}`)
-                setDateData(`${fetch.data.date}`)
-                setTitleData(`${fetch.data.title}`)
                 console.log("Data fetched successfully.")
             }
             )
@@ -29,19 +21,8 @@ const Photo = () => {
             }, [])
 
     return (
-      <div >
-        <div className="creditContainer">
-          <div className="credits">
-            <p>|</p>
-            <p><a href={copyrightDataLink}>{copyrightData}</a></p>
-            <p>|</p>
-            <p>{dateData}</p>
-            <p>|</p>
-            <p>{titleData}</p>
-            <p>|</p>
-          </div>
-        </div>
-        <img className="photo" src={data} alt="Photo of the Day."></img>
+      <div className="photo">
+        <img src={data} alt="Photo of the Day."></img>
       </div>
     );
 
