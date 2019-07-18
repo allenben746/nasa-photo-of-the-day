@@ -1,15 +1,24 @@
 import React from "react";
+import Header from "./components/Header";
+import Photo from "./components/Photo";
+import Message from "./components/Message";
+
+
 import "./App.css";
 
+
+
 function App() {
+
+ 
+
   return (
-    <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
+    <div class="App">
+      <Header />
+      <Photo />
+      <Message/>
     </div>
-  );
+  )
 }
 
 export default App;
